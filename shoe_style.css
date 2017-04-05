@@ -1,0 +1,78 @@
+@media screen and (min-width: 980px) {
+    body {
+        background-color: lightgreen;
+    }
+
+h1 {
+    text-align: center;
+    color: olive;
+    font-size: 220%;
+    width: 320px;
+    padding: 10px;
+    border:1px solid blue;
+    border-radius: 12px;
+    margin-right: 150px;
+    margin-left: 430px;
+    
+    position: relative;
+  /* Standard syntax */
+    animation-name: example;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:50px; top:0px;}
+    50%  {background-color:blue; left:20px; top:20px;}
+    75%  {background-color:green; left:0px; top:20px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+
+img {
+    width: 350px;
+    height: 263px;
+    display:block;
+    border-radius: 12px;
+    margin-right: 150px;
+    margin-left: 430px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: -10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: dimgrey;*/
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 24px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #333;
+    position: relative;
+}
+
+
+.footer {
+ background: #eee;
+ bottom: -700px;
+ text-align: center;
+ position: relative;
+}
