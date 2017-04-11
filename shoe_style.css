@@ -26,9 +26,9 @@ h1 {
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
+    0%   {background-color:red; left:30px; top:0px;}
     25%  {background-color:yellow; left:50px; top:0px;}
-    50%  {background-color:blue; left:20px; top:20px;}
+    50%  {background-color:blue; left:100px; top:20px;}
     75%  {background-color:green; left:0px; top:20px;}
     100% {background-color:red; left:0px; top:0px;}
 }
@@ -73,16 +73,13 @@ li a:hover {
     margin: 70px;  
     max-width:500px;
     margin: auto;
-    border-radius: 20%; 
-    color: blueviolet;
-    
+    border-radius: 40%; 
+    background-color: royalblue;
 }
-
-select {
-    width: 100px;
-    border-radius: 20%    
+    label{
+       color: red;
     }
-    
+
     button {
     width: 60px;
     background-color: #4CAF50;
