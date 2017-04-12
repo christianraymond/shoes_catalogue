@@ -27,10 +27,12 @@
       
   <datalist id="brandName">
     <option value="Adidas">
+<!--
     <option value="Puma">
     <option value="Timberland">
     <option value="Navara">
     <option value="Other">
+-->
   </datalist>
 
     <label>Color</label>
@@ -45,8 +47,8 @@
      
     <label>Size</label>
       <input list="shoeSize" placeholder="Select your size" id="size">    
-  <datalist id="shoeSize">
-      
+ 
+  <datalist id="shoeSize"> 
     <option value="12">
     <option value=5>
     <option value="6">
@@ -58,30 +60,28 @@
     <option value="10">
     <option value="13">
  </datalist>
-      <button class="search button">Search</button>
+      <button class="searchButton">Search</button>
 </div>
-      
-    <script src="main_js/shoe_catalogue.js"></script>
+    
    <script id="myTemplate" type="text/x-handlebars-template">
+        
 
-       <table>
-           <tbody>
-               <tr>
-                   {{#shoeData}}
-                     <td>{{name}}</td>
-                     <td>{{size}}</td>
-                     <td>{{price}}</td>
-                   
-                   {{/shoeData}}
-                  </tr>
-            </tbody>
-       </table>
+
+    <ul>
+    {{#each shoesData}}
+        <li>{{name}}</li>
+      {{/each}}
+        
+    </ul>         
+
     </script>
-           
+    
+   
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
      <p>Contact information: <a href="mailto:christian@codexproject.co">christian@projectcode.co</a>.</p>
     <b>ChristianNgubanacopyright@2017</b>
   </div>
+    <script src="main_js/shoe_catalogue.js"></script>
 </body>
 </html>
