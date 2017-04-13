@@ -95,9 +95,27 @@ li a:hover {
     
 hr {
     border-width: 2px;
-        
-    }
+}
+   table {
+    border-collapse: collapse;
+    width: 40%;
+    border-collapse: collapse;   
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
     
+       
 .footer {
  background: #eee;
  bottom: -700px;

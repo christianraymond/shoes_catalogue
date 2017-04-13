@@ -19,64 +19,73 @@
     
   <img src="my_shoe_image.jpg"><hr>
     
-  <div id="shoeDetails"> 
+  <div id="content"> 
       <h1>Shoe Catalogue</h1>
       <hr>
-    <label>Brand:</label>  
-  <input list="brandName" placeholder="Select brand" id="brand"> 
       
+<label>Brand:</label>  
+  <input list="brandName" placeholder="Select brand" id="brand"> 
   <datalist id="brandName">
-    <option value="Adidas">
-<!--
-    <option value="Puma">
-    <option value="Timberland">
-    <option value="Navara">
-    <option value="Other">
--->
+    <option value="Nike">     
   </datalist>
 
-    <label>Color</label>
+<label>Color</label>
   <input list="shoeColor" placeholder="Chose color" id="color">
-
   <datalist id="shoeColor">  
-    <option value="Black">
-    <option value="White" >
-    <option value="Maroon">
     <option value="Red">
   </datalist>
      
     <label>Size</label>
       <input list="shoeSize" placeholder="Select your size" id="size">    
- 
   <datalist id="shoeSize"> 
-    <option value="12">
-    <option value=5>
-    <option value="6">
-    <option value="7">
-    <option value="9">
-    <option value="11">
-    <option value="8">
-    <option value="2">
-    <option value="10">
-    <option value="13">
+    <option value=" 8">
  </datalist>
       <button class="searchButton">Search</button>
 </div>
     
    <script id="myTemplate" type="text/x-handlebars-template">
-        
 
-
-    <ul>
-    {{#each shoesData}}
-        <li>{{name}}</li>
-      {{/each}}
-        
-    </ul>         
-
-    </script>
+<table align="center">
+    <thead></thead>
+    <tbody> 
+    <tr>
+      <th>Name</th>
+      <th>Color</th>    
+      <th>Price</th>    
+      <th>Size</th>    
+      <th>Stock</th>
+    <tr>  
+      {{#each shoesData}}
+     <tr> 
+       <td>{{name}}</td>
+        <td>{{color}}</td>
+        <td>R{{price}}</td>
+         <td>{{size}}</td>
+        <td>{{quantity}}</td>
+      </tr>    
+    {{/each}}
+        </tbody>
+ </table>
+</script>   
     
-   
+<!--Creating anothe script for my dropdowns-->
+    
+    <script id="dropDownScript" type="text/x-handlebars-template">
+
+       <span class="brandField">
+         <label for="brand">Brands</label>  
+      <select class="brandsField">
+        <option value="">Select brand</option>
+
+        {{#each brands}}
+          <option>{{this}}</option>
+         {{/each}}
+      </select>   
+    </span>    
+</script>   
+                
+    <div class="brandOutputdiv"></div>
+    
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
      <p>Contact information: <a href="mailto:christian@codexproject.co">christian@projectcode.co</a>.</p>
