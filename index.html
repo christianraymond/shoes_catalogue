@@ -4,11 +4,11 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <title>Shoe Catologue</title>
     <script src="handlebars-v4.0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="shoe_style.css">
-      <title>Shoe Catologue</title>
-    </head>
+</head>
+    
 <body>
     <ul>
       <li><a class="active" href="http://christianraymond.github.io/">Home</a></li>
@@ -16,36 +16,37 @@
       <li><a href="mailto:christian1.raymond@gmail.com">Contact</a></li>
       <li><a href="http://christianraymond.github.io/">About</a></li>
     </ul>
-    
-  <img src="my_shoe_image.jpg"><hr>
-    
-  <div id="content"> 
-      <h1>Shoe Catalogue</h1>
-      <hr>
-      
-<label>Brand:</label>  
-  <input list="brandName" placeholder="Select brand" id="brand"> 
-  <datalist id="brandName">
-    <option value="Nike">     
-  </datalist>
+    <div id="header"> 
+  <img src="my_shoe_image.jpg"><h1>Shoe Catalogue</h1></div><hr>
+  
+         
+<script class="dropDownTemplate" type="text/x-handlebars-template">
+  <datalist id="shoeSearch">
+  <option value="">Select..</option>
+    {{#each name}}
+       <option>{{name}}</option>
+    {{/each}}
+      </datalist>
+   
+         {{#each color}}
+       <option>{{color}}</option>        
+        {{/each}}
+    </select>   
+        {{#each size}}
+      <option>{{size}}</option>
+      {{/each}}   
+   </select>
 
-<label>Color</label>
-  <input list="shoeColor" placeholder="Chose color" id="color">
-  <datalist id="shoeColor">  
-    <option value="Red">
-  </datalist>
-     
-    <label>Size</label>
-      <input list="shoeSize" placeholder="Select your size" id="size">    
-  <datalist id="shoeSize"> 
-    <option value=" 8">
- </datalist>
-      <button class="searchButton">Search</button>
-</div>
+</script>
+     <div class="selectField">
+       <select class="dropDownDisplay"></select>
+       <select class="dropDownForColor"></select>
+       <select class="dropDownForSize"></select>
+       <button class="searchButton">Search</button> 
+    </div>
     
-   <script id="myTemplate" type="text/x-handlebars-template">
-
-<table align="center">
+    <script class="table" type="text/x-handlebars-template">
+    <table border="20" align="center">
     <thead></thead>
     <tbody> 
     <tr>
@@ -55,36 +56,19 @@
       <th>Size</th>    
       <th>Stock</th>
     <tr>  
-      {{#each shoesData}}
+      {{#each colorName}}
      <tr> 
        <td>{{name}}</td>
         <td>{{color}}</td>
         <td>R{{price}}</td>
          <td>{{size}}</td>
-        <td>{{quantity}}</td>
+         <td>{{stock}}</td>
       </tr>    
     {{/each}}
         </tbody>
  </table>
-</script>   
-    
-<!--Creating anothe script for my dropdowns-->
-    
-    <script id="dropDownScript" type="text/x-handlebars-template">
-
-       <span class="brandField">
-         <label for="brand">Brands</label>  
-      <select class="brandsField">
-        <option value="">Select brand</option>
-
-        {{#each brands}}
-          <option>{{this}}</option>
-         {{/each}}
-      </select>   
-    </span>    
-</script>   
-                
-    <div class="brandOutputdiv"></div>
+    </script>
+    <div class="displayTable"></div>
     
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
