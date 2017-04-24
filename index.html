@@ -18,7 +18,27 @@
     </ul>
     <div id="header"> 
   <img src="my_shoe_image.jpg"><h1>Shoe Catalogue</h1></div><hr>
-  
+    
+    <div class="container">
+            <div class="addingSection">
+                <h3>Add Brands</h3>
+                <div class="field">
+                    <label for="brandName">Brand</label>
+                    <input type="text" name="brand" class="brandName">
+                </div>
+                <div class="field">
+                    <label for="brandColor">Color</label>
+                    <input type="text" name="color" class="color">
+                </div>
+                <div class="field">
+                    <label for="brandSize">Size</label>
+                    <input type="text" name="size" class="size">
+                </div>
+                <div class="field">
+                    <input type="button" name="" value="Add" class="addStocks">
+                </div>
+           </div>
+        </div>
          
 <script class="dropDownTemplate" type="text/x-handlebars-template">
   <datalist id="shoeSearch">
@@ -39,8 +59,12 @@
 
 </script>
      <div class="selectField">
+         <h3>Search your brand here.</h3>
+         <b>Brands</b>  
        <select class="dropDownDisplay"></select>
+         <b>Color</b>
        <select class="dropDownForColor"></select>
+          <b>Size</b>
        <select class="dropDownForSize"></select>
        <button class="searchButton">Search</button> 
     </div>
@@ -62,14 +86,14 @@
         <td>{{color}}</td>
         <td>R{{price}}</td>
          <td>{{size}}</td>
-         <td>{{stock}}</td>
+         <td><p><font color="red">{{stock}}</font></p></td>
       </tr>    
     {{/each}}
         </tbody>
  </table>
     </script>
     <div class="displayTable"></div>
-    
+
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
      <p>Contact information: <a href="mailto:christian@codexproject.co">christian@projectcode.co</a>.</p>

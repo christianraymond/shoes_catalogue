@@ -21,7 +21,6 @@ var compiledDropDownTemplate = Handlebars.compile(dropDownTemplate.innerHTML);
 var tableTemplate = document.querySelector(".table");
 var compiledTableTemplate = Handlebars.compile(tableTemplate.innerHTML);
 
-
 var shoesData = [
        {name: "Nike", size: 7, price: 999, stock: 34, color: "Black"},
        {name: "Nike", size: 4, price: 843, stock: 73, color: "White"},
@@ -52,30 +51,36 @@ var shoesData = [
          
      ];
 
-searchButton.addEventListener("click", function(){
-    
-    function searchBrand(input){
+
+   function searchBrand(input){
     return input.name == dropDownDisplay.value 
     
 }
    var brandName = shoesData.filter(searchBrand);
     
+    
    function searchColor(input){
     return input.color == dropDownForColor.value 
 }
-    
     var colorName = brandName.filter(searchColor);
-      
+
+function searchSize(input){
+        return input.size == dropDownForSize.nodeValue
+    }
+    var brandSize = colorName.filter(searchSize)
+   
+    
     var tableDisplay = compiledTableTemplate({
     colorName   
 })
-     
-displayTable.innerHTML = tableDisplay
-
     
     document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
     name: shoesData,   
+        
+     
 })
+    displayTable.innerHTML = tableDisplay
+
     document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
      color: shoesData,
     })
@@ -83,5 +88,43 @@ displayTable.innerHTML = tableDisplay
     document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
     size: shoesData
     })
-})
 
+searchButton.addEventListener("click", function(){
+    
+   function searchBrand(input){
+    return input.name == dropDownDisplay.value 
+  }
+   var brandName = shoesData.filter(searchBrand);
+    
+    
+   function searchColor(input){
+    return input.color == dropDownForColor.value 
+   }
+    var colorName = brandName.filter(searchColor);
+    
+    function searchSize(input){
+        return input.size == dropDownForSize.nodeValue
+    }
+    var brandSize = colorName.filter(searchSize)
+   
+    var tableDisplay = compiledTableTemplate({
+    colorName   
+})
+    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
+    name: shoesData,   
+        
+     
+})
+    displayTable.innerHTML = tableDisplay
+
+    document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
+     color: shoesData,
+    })
+    
+    document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
+    size: shoesData
+       }) 
+    
+});
+
+   
