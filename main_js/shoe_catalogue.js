@@ -4,9 +4,9 @@ var brandName = document.querySelector(".brandName");
 var brandColor = document.querySelector(".brandColor");
 var brandSize = document.querySelector(".sizeBrand");
 var brandPrice = document.querySelector(".brandPrice");
+
 var brandStock = document.querySelector(".brandStock");
-
-
+var addButton = document.querySelector(".addStocks")
 var dropDownDisplay = document.querySelector(".dropDownDisplay");
 var dropDownForColor = document.querySelector(".dropDownForColor");
 var dropDownForSize = document.querySelector('.dropDownForSize')
@@ -127,4 +127,8 @@ searchButton.addEventListener("click", function(){
     
 });
 
+
+addButton.addEventListener('click', function(){
+    alert('Hello, we are currently busy emplimenting this feature, Thank you!')
+});
    
