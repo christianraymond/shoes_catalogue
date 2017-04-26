@@ -7,9 +7,9 @@ var brandPrice = document.querySelector(".brandPrice");
 
 var brandStock = document.querySelector(".brandStock");
 var addButton = document.querySelector(".addStocks")
-var dropDownDisplay = document.querySelector(".dropDownDisplay");
-var dropDownForColor = document.querySelector(".dropDownForColor");
-var dropDownForSize = document.querySelector('.dropDownForSize')
+//var dropDownDisplay = document.querySelector(".dropDownDisplay");
+//var dropDownForColor = document.querySelector(".dropDownForColor");
+//var dropDownForSize = document.querySelector('.dropDownForSize')
 var searchButton = document.querySelector(".searchButton");
 
 var displayTable = document.querySelector('.displayTable');
@@ -52,83 +52,202 @@ var shoesData = [
      ];
 
 
-   function searchBrand(input){
-    return input.name == dropDownDisplay.value 
+function uniqueBrandInfo(){
+    'use strict';
     
-}
-   var brandName = shoesData.filter(searchBrand);
+    var uniqueBrand = [];
+    var mapBrand = {};
     
+    for(var x = 0; x < shoesData; x++){
+        var brandName = shoesData[x];
     
-   function searchColor(input){
-    return input.color == dropDownForColor.value 
-}
-    var colorName = brandName.filter(searchColor);
-
-function searchSize(input){
-        return input.size == dropDownForSize.nodeValue
+     if(mapBrand.[brandName.name] === undefined){
+        mapBrand[brandName.name] = brandName.name;
+         unique.push(brandName.name)
+      }
     }
-    var brandSize = colorName.filter(searchSize)
-   
-    
-    var tableDisplay = compiledTableTemplate({
-    colorName   
-})
-    
-    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
-    name: shoesData,   
-        
-     
-})
-    displayTable.innerHTML = tableDisplay
+document.querySelector(".dropDownDisplay").innerHTML = compiledDropDownTemplate({name: uniqueBrand}); 
+}
+uniqueBrandInfo();
 
-    document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
-     color: shoesData,
-    })
+function uniqueBrandColrorInfo(){
+    var uniqueColor = [];
+    var mapColor = {};
     
-    document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
-    size: shoesData
-    })
+    for(var i = 0; i < shoesData; i++){
+       var brandColor = shoesData[i];
+     if(mapColor.[brandColor.color] === undefined){
+         mapColor[brandColor.color] = brandColor.color;
+         uniqueColor.push(brandColor.color)
+      }
+    }
+document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({color: uniqueColor});
+}
+uniqueBrandColrorInfo();
 
-searchButton.addEventListener("click", function(){
+function uniqueSizeBrand(){
+    var uniqueSize = [];
+    mapSize = {};
+
+ for(var y = 0; y < shoesData; y++){
+     var brandSize = shoesData[y];
+  if(mapSize.[brandSize.size] === undefined){
+      mapSize[brandSize.color] = brandSize.size;
+      uniqueSize.push(brandSize.size)
+  }     
+ }
+document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({size: unqueSize});
+}
+function uniqueSizeBrand();
+
+function search(){
+    var brandFilter = document.querySelector(".dropDownDisplay");
+    var colorFilter = document.querySelector(".dropDownForColor");
+    var sizeFilter = document.querySelector('.dropDownForSize')  
+
+    function brand(input){
+        return brandFilter.value == input.name;   
+     }
     
-   function searchBrand(input){
-    return input.name == dropDownDisplay.value 
+    function color(input){
+        return colorFilter.value == input.color;
+     }
+    
+    function size(input){
+       return sizeFilter.value == input.seze;
+    }
+    
+    if(brandFilter.value !== ""){
+       var stock = shoesData.filter(name);    
+    }
+      
+    if(colorFilter.value !== ""){
+        if(brandFilter.value !== ""){
+            var stock = stock.filter(color);
+        } else {
+            var stock = shoesData.filter(color);
+        }
+    }
+     if(sizeFilter.value !== ""){
+         if(brandFilter.value !== "" || colorFilter !== ""){
+             var stock = stock.filter(size);
+         }
+     } else{
+         var stock = shoesData.filter(size)
+     }
   }
-   var brandName = shoesData.filter(searchBrand);
-    
-    
-   function searchColor(input){
-    return input.color == dropDownForColor.value 
-   }
-    var colorName = brandName.filter(searchColor);
-    
-    function searchSize(input){
-        return input.size == dropDownForSize.nodeValue
-    }
-    var brandSize = colorName.filter(searchSize)
-   
-    var tableDisplay = compiledTableTemplate({
-    colorName   
-})
-    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
-    name: shoesData,   
-        
-     
-})
-    displayTable.innerHTML = tableDisplay
 
-    document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
-     color: shoesData,
-    })
-    
-    document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
-    size: shoesData
-       }) 
-    
-});
+var 
 
 
-addButton.addEventListener('click', function(){
-    alert('Hello, we are currently busy emplimenting this feature, Thank you!')
-});
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//    var tableDisplay = compiledTableTemplate({
+//    shoesData  
+//    })
+//    
+//    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
+//    name: shoesData,   
+//     })   
+//
+//    document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
+//     color: shoesData,
+//    })
+//    
+//    document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
+//    size: shoesData
+//    })
+//
+//displayTable.innerHTML = tableDisplay
+//
+//searchButton.addEventListener("click", function(){
+//    
+//   function searchBrand(input){
+//    return input.name == dropDownDisplay.value 
+//  }
+//   var brandName = shoesData.filter(searchBrand);
+//    
+//    
+//   function searchColor(input){
+//    return input.color == dropDownForColor.value 
+//   }
+//    var colorName = brandName.filter(searchColor);
+//    
+//    function searchSize(input){
+//      return input.size == dropDownForSize.value
+//    }
+//    var brandSize = colorName.filter(searchSize)
+//      
+//    var tableDisplay = compiledTableTemplate({
+//    brandName 
+//        
+//})
+//    var tableDisplay = compiledTableTemplate({
+//    colorName    
+//})
+//    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
+//    colorName       
+//     
+//})
+//    document.querySelector('.dropDownDisplay').innerHTML = compiledDropDownTemplate({
+//    brandSize       
+//     
+//})
+//    displayTable.innerHTML = tableDisplay
+//
+//    document.querySelector(".dropDownForColor").innerHTML = compiledDropDownTemplate({
+//     color: shoesData,
+//    })
+//    
+//    document.querySelector('.dropDownForSize').innerHTML = compiledDropDownTemplate({
+//    size: shoesData
+//       }) 
+//    
+//});
+//
+//
+//addButton.addEventListener('click', function(){
+//    alert('Hello, we are currently busy implimenting this feature, Thank you!')
+//});
+//   

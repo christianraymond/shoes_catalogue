@@ -40,20 +40,21 @@
                     <input type="button" name="" value="Add" class="addStocks">
                 </div>
            </div>
-        
-         
 <script class="dropDownTemplate" type="text/x-handlebars-template">
   <datalist id="shoeSearch">
   <option value="">Select..</option>
+  <select> 
     {{#each name}}
        <option>{{name}}</option>
     {{/each}}
+      </select>
       </datalist>
-   
+   <select>
          {{#each color}}
        <option>{{color}}</option>        
         {{/each}}
-    </select>   
+    </select> 
+     <select>
         {{#each size}}
       <option>{{size}}</option>
       {{/each}}   
@@ -88,7 +89,7 @@
         <td>{{color}}</td>
         <td>R{{price}}</td>
          <td>{{size}}</td>
-         <td><p><font color="red">{{stock}}</font></p></td>
+         <td><p><font color="maroon">{{stock}}</font></p></td>
       </tr>    
     {{/each}}
         </tbody>
