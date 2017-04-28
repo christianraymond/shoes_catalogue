@@ -1,107 +1,116 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shoe Catologue</title>
-    <script src="handlebars-v4.0.5.js"></script>
-    <link rel="stylesheet" type="text/css" href="shoe_style.css">
+  <title>Shoe Catologue</title>
+  <script src="handlebars-v4.0.5.js"></script>
+  <link rel="stylesheet" type="text/css" href="shoe_style.css">
 </head>
-    
+
 <body>
-    <ul>
-      <li><a class="active" href="http://christianraymond.github.io/">Home</a></li>
-      <li><a href="https://www.google.co.za/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#tbm=nws&q=news24&*">News</a></li>
-      <li><a href="mailto:christian1.raymond@gmail.com">Contact</a></li>
-      <li><a href="http://christianraymond.github.io/">About</a></li>
-    </ul>
-    <div id="header"> 
-        <p><kbd>Welcome to Shoe_catologue.com, the site is supporting user to find their shoes brands. For now, the site does let the user select his(her) favorite brand name, brand color, and size color, then search for that specific selection. The site prompts the list of brands available in stock, as well as the cost of the brand. The site still need more functionalities, such as letting shop owner add more brands, as you can see on your right. I appreciate your concern of visiting this site. Thank you.</kbd></p>    
-  <img src="my_shoe_image.jpg"><h1>Shoe Catalogue</h1></div>
-    <hr>
-    
-    <div class="container">
-            <div class="addingSection">
-                <h3>Add brands here</h3>
-                <div class="field">
-                    <label for="brandName">Brand</label>
-                    <input type="text" name="brand" class="brandName" placeholder="Type brand..">
-                </div>
-                <div class="field">
-                    <label for="brandColor">Color</label>
-                    <input type="text" name="color" class="color" placeholder="Type color..">
-                </div>
-                <div class="field">
-                    <label for="brandSize">Size</label>
-                    <input type="text" name="size" class="size" placeholder="Type size..">
-                </div>
-                <div class="field">
-                    <input type="button" name="" value="Add" class="addStocks">
-                </div>
-           </div>
-<script class="dropDownTemplate" type="text/x-handlebars-template">
-  <datalist id="shoeSearch">
-  <option value="">Select..</option>
-  <select> 
+  <ul>
+    <li><a class="active" href="http://christianraymond.github.io/">Home</a></li>
+    <li><a href="https://www.google.co.za/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#tbm=nws&q=news24&*">News</a></li>
+    <li><a href="mailto:christian1.raymond@gmail.com">Contact</a></li>
+    <li><a href="http://christianraymond.github.io/">About</a></li>
+  </ul>
+  <div id="header">
+    <p><kbd>Welcome to Shoe_catologue.com, the site is supporting user to find their shoes brands. For now, the site does let the user select his(her) favorite brand name, brand color, and size color, then search for that specific selection. The site prompts the list of brands available in stock, as well as the cost of the brand. The site still need more functionalities, such as letting shop owner add more brands, as you can see on your right. I appreciate your concern of visiting this site. Thank you.</kbd></p>
+    <img src="my_shoe_image.jpg">
+    <h1>Shoe Catalogue</h1></div>
+  <hr>
+
+  <div class="container">
+    <div class="addingSection">
+      <h3>Add brands here</h3>
+      <div class="field">
+        <label for="brandName">Brand</label>
+        <input type="text" name="brand" class="brandName" placeholder="Type brand..">
+      </div>
+      <div class="field">
+        <label for="brandColor">Color</label>
+        <input type="text" name="color" class="color" placeholder="Type color..">
+      </div>
+      <div class="field">
+        <label for="brandSize">Size</label>
+        <input type="text" name="size" class="size" placeholder="Type size..">
+      </div>
+      <div class="field">
+        <input type="button" name="" value="Add" class="addStocks">
+      </div>
+    </div>
+
+
+
+    <script class="dropDownTemplate" type="text/x-handlebars-template">
+      <option value="">Select..</option>
+      <select>
     {{#each name}}
        <option>{{name}}</option>
     {{/each}}
       </select>
-      </datalist>
-   <select>
+      <select>
          {{#each color}}
-       <option>{{color}}</option>        
+       <option>{{color}}</option>
         {{/each}}
-    </select> 
-     <select>
+    </select>
+      <select>
         {{#each size}}
       <option>{{size}}</option>
-      {{/each}}   
+      {{/each}}
    </select>
 
-</script>
-     <div class="selectField">
-         <h3>Search your brand here.</h3>
-         <b>Brands</b>  
-       <select class="dropDownDisplay"></select>
-         <b>Color</b>
-       <select class="dropDownForColor"></select>
-          <b>Size</b>
-       <select class="dropDownForSize"></select>
-       <button class="searchButton">Search</button> 
+    </script>
+
+    <div class="selectField">
+      <h3>Search your brand here.</h3>
+      <b>Brands</b>
+      <select class="brand"></select>
+      <b>Color</b>
+      <select class="color"></select>
+      <b>Size</b>
+      <select class="size"></select>
+      <button class="searchButton">Search</button>
     </div>
-    
+
     <script class="table" type="text/x-handlebars-template">
-    <table border="20" align="center">
-    <thead></thead>
-    <tbody> 
-    <tr>
-      <th>Name</th>
-      <th>Color</th>    
-      <th>Price</th>    
-      <th>Size</th>    
-      <th>Stock</th>
-    <tr>  
-      {{#each colorName}}
-     <tr> 
-       <td>{{name}}</td>
-        <td>{{color}}</td>
-        <td>R{{price}}</td>
-         <td>{{size}}</td>
-         <td><p><font color="maroon">{{stock}}</font></p></td>
-      </tr>    
-    {{/each}}
+      <table border="20" align="center">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <tr>
+              {{#each colorName}}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{color}}</td>
+                <td>R{{price}}</td>
+                <td>{{size}}</td>
+                <td>
+                  <p>
+                    <font color="maroon">{{stock}}</font>
+                  </p>
+                </td>
+              </tr>
+              {{/each}}
         </tbody>
- </table>
+      </table>
     </script>
     <div class="displayTable"></div>
-</div>
+  </div>
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
-     <p>Contact information: <a href="mailto:christian@codexproject.co">christian@projectcode.co</a>.</p>
+    <p>Contact information: <a href="mailto:christian@codexproject.co">christian@projectcode.co</a>.</p>
     <b>ChristianNgubanacopyright@2017</b>
   </div>
-    <script src="main_js/shoe_catalogue.js"></script>
+  <script src="main_js/shoe_catalogue.js"></script>
 </body>
+
 </html>
