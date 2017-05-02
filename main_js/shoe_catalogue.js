@@ -3,12 +3,6 @@
 
 var addButton = document.querySelector(".addStocks");
 
-var brandDrop = document.querySelector(".brand");
-var colorDrop = document.querySelector(".color");
-var sizeDrop = document.querySelector('.size');
-
-var searchButton = document.querySelector(".searchButton");
-
 var displayTable = document.querySelector('.displayTable');
 
 //assign variable to track the script className.
@@ -208,6 +202,10 @@ function uniqueBrandInfo() {
     }
   }
   return uniqueBrand;
+    
+var brandDrop = document.querySelector('.brand'). innerHTML = compiledDropDownTemplate({
+    brand: uniqueBrand
+})
 }
 
 function uniqueBrandColorInfo() {
@@ -233,6 +231,9 @@ function uniqueBrandColorInfo() {
     }
     return 0;
   });
+var colorDrop = document.querySelector('.color').innerHTML = compiledDropDownTemplate({
+    color: uniqueColor
+})
 }
 
 function uniqueSizeBrand() {
@@ -253,7 +254,23 @@ function uniqueSizeBrand() {
   });
 }
 
-function search() {
+
+var stockAvailable = document.querySelector(".dropDownTemplate");
+var compiledDropDownTemplate = Handlebars.compile(stockAvailable.innerHTML);
+
+function showDropdown(){
+  var dropdownHTML = compiledDropDownTemplate({
+    name : uniqueBrandInfo(),
+    color : uniqueBrandColorInfo(),
+    size : uniqueSizeBrand()
+  });
+
+  var displayTable = document.querySelector('.selectField').innerHTML = dropdownHTML;
+}
+
+var searchButton = document.querySelector('.searchButton')
+
+searchButton.addEventListener('click', function() {
   var brandFilter = document.querySelector(".brand");
   var colorFilter = document.querySelector(".color");
   var sizeFilter = document.querySelector('.size');
@@ -261,15 +278,25 @@ function search() {
   function searchBrand(input) {
     return brandFilter.value == input.name;
   }
-
+brandFilter = shoesData.filter(searchBrand);
+    var tableDisplay = compiledTableTemplate({
+    brandFilter  
+})
+    
   function searchColor(input) {
     return colorFilter.value == input.color;
   }
-
+colorFilter = shoesData.filter(searchColor);
+var tableDisplay = compiledTableTemplate({
+    colorFilter   
+})
   function searchSize(input) {
     return sizeFilter.value == input.seze;
   }
-
+sizeFilter = shoesData.filter(searchSize);
+    var tableDisplay = compiledTableTemplate({
+    sizeFilter   
+})
   if (brandFilter.value !== "") {
     var stock = shoesData.filter(searchBrand);
   }
@@ -285,52 +312,9 @@ function search() {
       var stock = stock.filter(searchSize);
     }
   } else {
-    // ???
     var stock = shoesData.filter(searchSize);
   }
 
-  // ???
-  // ---
-}
-
-
-
-  //uniqueBrandColorInfo();
-
-  //uniqueSizeBrand();
-
-
-
-
-  //var stockAvailable = document.querySelector(".dropDownTemplate");
-  //var compiledDropDownTemplate = Handlebars.compile(stockAvailable.innerHTML);
-
-  //
-  // var searched = compiledDropDownTemplate({
-  //   name : uniqueSizeBrand(),
-  //   color : uniqueBrandColorInfo(),
-  //   size : uniqueSizeBrand()
-  // });
-  //
-  // var displayTable = document.querySelector('.selectField').innerHTML = searched;
-  //
-  // if (searched === undefined) {
-  //   document.querySelector(displayTable).innerHTML = "Please Select something!";
-  // }
-
-
-
-var stockAvailable = document.querySelector(".dropDownTemplate");
-var compiledDropDownTemplate = Handlebars.compile(stockAvailable.innerHTML);
-
-function showDropdown(){
-  var dropdownHTML = compiledDropDownTemplate({
-    name : uniqueBrandInfo(),
-    color : uniqueBrandColorInfo(),
-    size : uniqueSizeBrand()
-  });
-
-  var displayTable = document.querySelector('.selectField').innerHTML = dropdownHTML;
-}
+});
 
  showDropdown();

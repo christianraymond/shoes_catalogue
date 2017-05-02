@@ -47,17 +47,17 @@
 
     <script class="dropDownTemplate" type="text/x-handlebars-template">
       <option value="">Select..</option>
-      <select>
+      <select class="brand">
     {{#each name}}
        <option>{{name}}</option>
     {{/each}}
       </select>
-      <select>
+      <select class="color">
          {{#each color}}
        <option>{{color}}</option>
         {{/each}}
     </select>
-      <select>
+      <select class="size">
         {{#each size}}
       <option>{{size}}</option>
       {{/each}}
@@ -65,14 +65,8 @@
 
     </script>
 
-    <div class="selectField">
-      <h3>Search your brand here.</h3>
-      <b>Brands</b>
-      <select class="brand"></select>
-      <b>Color</b>
-      <select class="color"></select>
-      <b>Size</b>
-      <select class="size"></select>
+    <div class="dDown">
+        <div class="selectField"></div>
       <button class="searchButton">Search</button>
     </div>
 
