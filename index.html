@@ -8,6 +8,54 @@
   <title>Shoe Catologue</title>
   <script src="handlebars-v4.0.5.js"></script>
   <link rel="stylesheet" type="text/css" href="shoe_style.css">
+
+  <script class="table" type="text/x-handlebars-template">
+      <table border="20" align="center">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <tr>
+              {{#each shoesData}}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{color}}</td>
+                <td>R{{price}}</td>
+                <td>{{size}}</td>
+                <td>
+                  <p>
+                    <font color="maroon">{{stock}}</font>
+                  </p>
+                </td>
+              </tr>
+              {{/each}}
+        </tbody>
+      </table>
+    </script>
+    <script class="dropDownTemplate" type="text/x-handlebars-template">
+      <select class="brand">
+        <option value="">Select brand..</option>
+    {{#each name}}
+       <option>{{name}}</option>
+    {{/each}}
+      </select>
+      <select class="color">
+         <option value="">Select color..</option>
+         {{#each color}}
+       <option>{{color}}</option>
+        {{/each}}
+    </select>
+      <select class="size">
+        <option value="">Select size..</option>
+        {{#each size}}
+      <option>{{size}}</option>
+      {{/each}}
+   </select>
+</script>
 </head>
 
 <body>
@@ -45,59 +93,12 @@
 
 
 
-    <script class="dropDownTemplate" type="text/x-handlebars-template">
-      <option value="">Select..</option>
-      <select class="brand">
-    {{#each name}}
-       <option>{{name}}</option>
-    {{/each}}
-      </select>
-      <select class="color">
-         {{#each color}}
-       <option>{{color}}</option>
-        {{/each}}
-    </select>
-      <select class="size">
-        {{#each size}}
-      <option>{{size}}</option>
-      {{/each}}
-   </select>
-
-    </script>
-
     <div class="dDown">
         <div class="selectField"></div>
-      <button class="searchButton">Search</button>
+        <button class="searchButton">Search</button>
     </div>
 
-    <script class="table" type="text/x-handlebars-template">
-      <table border="20" align="center">
-        <thead></thead>
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Size</th>
-            <th>Stock</th>
-            <tr>
-              {{#each colorName}}
-              <tr>
-                <td>{{name}}</td>
-                <td>{{color}}</td>
-                <td>R{{price}}</td>
-                <td>{{size}}</td>
-                <td>
-                  <p>
-                    <font color="maroon">{{stock}}</font>
-                  </p>
-                </td>
-              </tr>
-              {{/each}}
-        </tbody>
-      </table>
-    </script>
-    <div class="displayTable"></div>
+    <div class="showTable"></div>
   </div>
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
