@@ -252,6 +252,7 @@ function uniqueSizeBrand() {
     return s1.size - s2.size;
   });
 }
+
 var stockAvailable = document.querySelector(".dropDownTemplate");
 var compiledDropDownTemplate = Handlebars.compile(stockAvailable.innerHTML);
 
@@ -267,12 +268,12 @@ function showDropdown() {
 
 var searchButton = document.querySelector('.searchButton')
 
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', function showDropdown() {
   var brandFilter = document.querySelector(".brand");
   var colorFilter = document.querySelector(".color");
   var sizeFilter = document.querySelector('.size');
 
-  var stock = shoesData;
+    var stock = {};
 
   function searchBrand(input) {
     return brandFilter.value == input.name;
@@ -291,17 +292,26 @@ searchButton.addEventListener('click', function() {
   }
 
 if(colorFilter.value !== ""){
-  stock = shoesData.filter(searchColor.stock);
+  stock = shoesData.filter(searchColor);
   }
 
  if(sizeFilter.value !== ""){
   stock = shoesData.filter(searchSize);
 }
+    
   var tableDisplay = compiledTableTemplate({
     stock
   });
-    displayTable.innerHTML = compiledTableTemplate({shoesData : stock})
+displayTable.innerHTML = compiledTableTemplate({shoesData : stock})    
+
+//At this point, I want to let the use know that they should select atleast something before searching.    
+//if( brandFilter == "" ||  
+//   colorFilter == "" || 
+//   sizeFilter == ""){
+// }
+//displayTable.innerHTML = "Please select something!";
+    
 });
 
-showDropdown();
 displayTable.innerHTML = compiledTableTemplate({shoesData : []});
+showDropdown();

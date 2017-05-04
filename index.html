@@ -37,18 +37,21 @@
       </table>
     </script>
     <script class="dropDownTemplate" type="text/x-handlebars-template">
+
       <select class="brand">
         <option value="">Select brand..</option>
     {{#each name}}
        <option>{{name}}</option>
     {{/each}}
       </select>
+
       <select class="color">
          <option value="">Select color..</option>
          {{#each color}}
        <option>{{color}}</option>
         {{/each}}
     </select>
+
       <select class="size">
         <option value="">Select size..</option>
         {{#each size}}
@@ -76,29 +79,27 @@
       <h3>Add brands here</h3>
       <div class="field">
         <label for="brandName">Brand</label>
-        <input type="text" name="brand" class="brandName" placeholder="Type brand..">
+        <input type="text" name="brand" class="brandInput" placeholder="Type brand..">
       </div>
       <div class="field">
         <label for="brandColor">Color</label>
-        <input type="text" name="color" class="color" placeholder="Type color..">
+        <input type="text" name="color" class="colorInput" placeholder="Type color..">
       </div>
       <div class="field">
         <label for="brandSize">Size</label>
-        <input type="text" name="size" class="size" placeholder="Type size..">
+        <input type="text" name="size" class="sizeInput" placeholder="Type size..">
       </div>
       <div class="field">
         <input type="button" name="" value="Add" class="addStocks">
       </div>
     </div>
 
-
-
     <div class="dDown">
         <div class="selectField"></div>
         <button class="searchButton">Search</button>
     </div>
 
-    <div class="showTable"></div>
+    <div class="showTable"></div>      
   </div>
   <div class="footer">
     <kbd><strong>Note:</strong> This site has been done through <a href="http://www.projectcodex.co/learn/"> codeX </a>curruculum</kbd>
