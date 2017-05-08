@@ -1,6 +1,16 @@
- body {
-       background-color: blueviolet;
-    }
+ html {
+    background-color: olive;
+    margin: -1em;
+    font-family: arial;
+}
+
+body {
+    width : 1024px;
+    background-color: black;
+    margin : auto;
+    padding : 1em;
+    box-sizing: border-box;
+}
 
 h1 {
     text-align: center;
@@ -71,12 +81,28 @@ li a:hover {
     position: relative;
 }
 
-.shoeDetails {
-    margin: 70px;  
-    max-width:500px;
-    margin: auto;
-    border-radius: 40%; 
-    background-color: royalblue;
+select {
+    color: red;
+    border-radius: 12px;
+    margin: 17px 1px;
+}
+
+input {
+    border-radius: 12px;
+    text-align:left
+}
+
+label {
+    font-size: 14px;
+    padding: 3px;
+    color: white;
+}
+
+h3 {
+    margin: -2%;
+    font-size: 15px;
+    padding: 0px;
+    color: black;
 }
 
 button {
@@ -95,14 +121,17 @@ button {
 hr {
     border-width: 2px;
 }
+
    table {
     border-collapse: collapse;
     width: 40%;
-    border-collapse: collapse;   
+    border: 1px solid black;
+   
 }
 
 .showTable{
     text-align: center;
+    margin: 20px;
 }
 
 th, td {
@@ -123,32 +152,33 @@ th {
 }
 
 .dDown {
-width: 320px;
+    width: 320px;
+    height: 230px;
     padding: 5px;
-    border:1px solid blue;
-    border-radius: 22px;
-    margin-left: 10px;
     text-align: center;
+    margin: 260px;
     font-size: 9px;
-    background-color: olive
+    background-color: olive;
+    position: absolute;
+    top: 40%;
+    right: 48%
+
 }
 
 .displayTable {
-    margin-top: -8%;
+    margin: -20%;
 }
 
 .addingSection{
     width: 320px;
-    height: 120px;
+    height: 230px;
     padding: 5px;
-    border:1px solid blue;
-    border-radius: 32px;
     text-align: center;
     margin: 117px;
     font-size: 9px;
     background-color: olive;
     position: absolute;
-    top: 69%;
+    top: 62%;
     left: 63%; 
 }
 
@@ -159,9 +189,8 @@ width: 320px;
     color: white;
     padding: 5px 12px;
     text-align: center;
-    border-radius: 20%;    
+    border-radius: 10%;    
     font-size: 10px;
-    margin: 5px 2px;
     cursor: pointer;
     }
     
@@ -169,8 +198,7 @@ width: 320px;
     padding-top: 1%;
     margin-top: -2%;
     font-size: 10px;
-    padding: 9px 19px;
-    
+    padding: 9px 19px;    
 }
      
 .footer {

@@ -22,7 +22,7 @@
             <tr>
               {{#each shoesData}}
               <tr>
-                <td>{{name}}</td>
+                  <td><a href="https://www.google.co.za/search?q=nike+shoes&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjiyeCy1uDTAhXoJMAKHYT8AToQ_AUICigB&biw=1305&bih=678#imgrc=a4FQWMF-wBM7tM:">{{name}}</a></td>
                 <td>{{color}}</td>
                 <td>R{{price}}</td>
                 <td>{{size}}</td>
@@ -69,14 +69,14 @@
     <li><a href="http://christianraymond.github.io/">About</a></li>
   </ul>
   <div id="header">
-    <p><kbd>Welcome to Shoe_catologue.com, the site is supporting user to find their shoes brands. For now, the site does let the user select his(her) favorite brand name, brand color, and size color, then search for that specific selection. The site prompts the list of brands available in stock, as well as the cost of the brand. The site still need more functionalities, such as letting shop owner add more brands, as you can see on your right. I appreciate your concern of visiting this site. Thank you.</kbd></p>
+      <p><kbd><a href="index.html">shoescatalogue.co.za</a></kbd></p>
     <img src="my_shoe_image.jpg">
     <h1>Shoe Catalogue</h1></div>
   <hr>
 
   <div class="container">
     <div class="addingSection">
-      <h3>Add brands here</h3>
+      <h3><kbd>Add Brand Here: Admin Enterface</kbd></h3>
       <div class="field">
         <label for="brandName">Brand</label>
         <input type="text" name="brand" class="brandInput" placeholder="Type brand..">
@@ -88,13 +88,23 @@
       <div class="field">
         <label for="brandSize">Size</label>
         <input type="text" name="size" class="sizeInput" placeholder="Type size..">
-      </div>
+      </div> 
+        <div class="field">
+        <label for="brandprice">Price</label>
+        <input type="text" name="price" class="priceInput" placeholder="Type price..">
+      </div> 
+        
+        <div class="field">
+        <label for="bandsInStock">Stock</label>
+        <input type="text" name="stock" class="stockInput" placeholder="Type stock..">
+      </div>   
       <div class="field">
         <input type="button" name="" value="Add" class="addStocks">
       </div>
     </div>
 
     <div class="dDown">
+        <h3><kbd>Search Brand Here: User Enterface</kbd></h3>
         <div class="selectField"></div>
         <button class="searchButton">Search</button>
     </div>

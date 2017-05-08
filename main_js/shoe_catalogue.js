@@ -3,6 +3,12 @@
 
 var addButton = document.querySelector(".addStocks");
 
+//var brandInput = document.querySelector('.brandInput');
+//var colorInput = document.querySelector('.colorInput');
+//var sizeInput = document.querySelector('.sizeInput');
+
+
+
 var displayTable = document.querySelector('.showTable');
 
 //assign variable to track the script className.
@@ -11,6 +17,7 @@ var compiledDropDownTemplate = Handlebars.compile(dropDownTemplate.innerHTML);
 
 var tableTemplate = document.querySelector(".table");
 var compiledTableTemplate = Handlebars.compile(tableTemplate.innerHTML);
+
 
 var shoesData = [{
     name: "Nike",
@@ -207,7 +214,8 @@ function uniqueBrandInfo() {
   })
 }
 
-function uniqueBrandColorInfo() {
+
+function uniqueBrandColorInfo(){
   var uniqueColor = [];
   var mapColor = {};
 
@@ -235,7 +243,8 @@ function uniqueBrandColorInfo() {
   })
 }
 
-function uniqueSizeBrand() {
+
+function uniqueSizeBrand(){
   var uniqueSize = [];
   var mapSize = {};
 
@@ -252,6 +261,7 @@ function uniqueSizeBrand() {
     return s1.size - s2.size;
   });
 }
+
 
 var stockAvailable = document.querySelector(".dropDownTemplate");
 var compiledDropDownTemplate = Handlebars.compile(stockAvailable.innerHTML);
@@ -302,15 +312,37 @@ if(colorFilter.value !== ""){
   var tableDisplay = compiledTableTemplate({
     stock
   });
+    
 displayTable.innerHTML = compiledTableTemplate({shoesData : stock})    
 
-//At this point, I want to let the use know that they should select atleast something before searching.    
-//if( brandFilter == "" ||  
-//   colorFilter == "" || 
-//   sizeFilter == ""){
-// }
-//displayTable.innerHTML = "Please select something!";
-    
+});
+
+addButton.addEventListener('click', function(evt){
+   if(evt.target.name == ''){
+        alert('First enter something!')
+    }
+//These variable to be grabed from index file  
+var brandInput = document.querySelector('.brandInput');
+var colorInput = document.querySelector('.colorInput');
+var sizeInput = document.querySelector('.sizeInput');
+var priceInput = document.querySelector('.priceInput');   
+var stockInput = document.querySelector('.stockInput');    
+
+var brandValue = brandInput.value;
+var colorValue = colorInput.value;
+var sizeValue = sizeInput.value;
+var priceValue = priceInput.value;  
+var stockValue = stockInput.Value;   
+    newBrand = {
+        name: brandValue,
+        color:colorValue,
+        size: sizeValue,
+        price: priceValue,
+        stock: stockValue
+    } 
+shoesData.push(newBrand);
+displayTable.innerHTML = compiledTableTemplate({shoesData : shoesData});    
+
 });
 
 displayTable.innerHTML = compiledTableTemplate({shoesData : []});
