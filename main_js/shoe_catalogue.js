@@ -318,9 +318,9 @@ displayTable.innerHTML = compiledTableTemplate({shoesData : stock})
 });
 
 addButton.addEventListener('click', function(evt){
-   if(evt.target.name == ''){
-        alert('First enter something!')
-    }
+//   if(evt.target.name == ''){
+//        alert('First enter something!')
+//    }
 //These variable to be grabed from index file  
 var brandInput = document.querySelector('.brandInput');
 var colorInput = document.querySelector('.colorInput');
