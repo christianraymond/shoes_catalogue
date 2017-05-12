@@ -342,6 +342,7 @@ var stockValue = stockInput.value;
         stock: stockValue
     }
 shoesData.push(newBrand);
+showDropdown();
 displayTable.innerHTML = compiledTableTemplate({shoesData : shoesData});
 
 });
