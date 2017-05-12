@@ -308,40 +308,41 @@ if(colorFilter.value !== ""){
  if(sizeFilter.value !== ""){
   stock = shoesData.filter(searchSize);
 }
-    
+
   var tableDisplay = compiledTableTemplate({
     stock
   });
-    
-displayTable.innerHTML = compiledTableTemplate({shoesData : stock})    
+
+displayTable.innerHTML = compiledTableTemplate({shoesData : stock})
 
 });
 
-addButton.addEventListener('click', function(evt){
-   if(evt.target.name == ''){
-        alert('First enter something!')
-    }
-//These variable to be grabed from index file  
-var brandInput = document.querySelector('.brandInput');
-var colorInput = document.querySelector('.colorInput');
-var sizeInput = document.querySelector('.sizeInput');
-var priceInput = document.querySelector('.priceInput');   
-var stockInput = document.querySelector('.stockInput');    
+// //These variable to be grabed from index.html file
+var brandInput = document.getElementById('brand'); //getElementById .... id="brand"
+var colorInput = document.getElementById('color');
+var sizeInput = document.getElementById('size');
+var priceInput = document.getElementById('price');
+var stockInput = document.getElementById('stock');
 
+addButton.addEventListener('click', function(evt){
+if (brandInput.value == ""){
+      alert("You must enter values for all these items");
+      return;
+}
 var brandValue = brandInput.value;
 var colorValue = colorInput.value;
 var sizeValue = sizeInput.value;
-var priceValue = priceInput.value;  
-var stockValue = stockInput.Value;   
+var priceValue = priceInput.value;
+var stockValue = stockInput.value;
     newBrand = {
         name: brandValue,
         color:colorValue,
         size: sizeValue,
         price: priceValue,
         stock: stockValue
-    } 
+    }
 shoesData.push(newBrand);
-displayTable.innerHTML = compiledTableTemplate({shoesData : shoesData});    
+displayTable.innerHTML = compiledTableTemplate({shoesData : shoesData});
 
 });
 
